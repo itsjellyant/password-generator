@@ -1,24 +1,21 @@
-let alphabetsAndNumbers = Array.from("abcdefghijklmnopqrstuvwxyz123456789");
-let max = 10
+const max = 20
+const numbers = Array.from("123456789");
+const upperCaseAlphabets = Array.from("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+const lowerCaseAlphabets = Array.from("abcdefghijklmnopqrstuvwxyz");
+
+const button = document.querySelector("#password");
+const input = document.querySelector("#input");
+
+button.addEventListener("click", passwordGenerator);
 
 function passwordGenerator() {
-    let password = []
-    for (let i = 0; i < max; i++) {
-        let random = Math.floor(Math.random() * alphabetsAndNumbers.length);
-        let passwords = alphabetsAndNumbers[random].slice(0, 10);
-        password.push(passwords);
+    let password = [];
+    let allCharacters = numbers.concat(upperCaseAlphabets, lowerCaseAlphabets);
+    for(let i = 0; i < max; i++) {
+        let random = Math.floor(Math.random() * allCharacters.length);
+        let characters = allCharacters[random]
+        password.push(characters);
     }
-    return password.join("");
+    return input.setAttribute("value", `${password.slice(0, max).join("")}`);
 }
 
-function compare(myPassword, callback) {
-    let myArray = [];
-    while (!(passwordGenerator().includes(myPassword))) {
-        myArray.push(callback())
-
-        // if (myArray.length > 10000000) break;
-    }
-    return myArray;
-}
-
-console.log(compare("advfdses21", passwordGenerator));
