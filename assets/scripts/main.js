@@ -16,6 +16,6 @@ function passwordGenerator() {
         let characters = allCharacters[random]
         password.push(characters);
     }
-    return input.setAttribute("value", `${password.slice(0, max).join("")}`);
+        return input.setAttribute("value", `${password.slice(0, max).join("")}`);
 }
 
