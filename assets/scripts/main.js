@@ -7,18 +7,7 @@ Table of Contents
 */
 
 /***********************************
-        Password Generator 
-************************************/
-class {
-    constructor(generatedPassword) {
-        this.generatedPassword = generatedPassword;
-    }
-
-    
-}
-
-/***********************************
-    Regular Expressions - match
+            Variables
 ************************************/
 const password = {
     bad: /[/d]/,
@@ -27,3 +16,13 @@ const password = {
     high: /^[]$/,
 }
 
+/***********************************
+        Password Generator 
+************************************/
+class {
+    constructor(generatedPassword) {
+        this.generatedPassword = generatedPassword;
+    }
+
+
+}
