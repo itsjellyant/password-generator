@@ -1,28 +1,44 @@
 /*
 Table of Contents
     1. Variables
-        - Password Generator - iife
         - Regular Expressions - match
+        - Password Values - the values that will be in the password
 
 */
 
 /***********************************
             Variables
 ************************************/
-const password = {
+const passwordRegex = {
     bad: /[/d]/,
     weak: /[\w]/,
     medium: /^[\w\d]$/,
     high: /^[]$/,
 }
 
+const passwordValues = {
+    capitalAlphabets: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+    LowerAlphabets: 'abcdefghijklmnopqrstuvwxyz',
+    numbers: '1234567890',
+    speical: '[]{}<>()!@#$%^&*-_+=|.,;`~/',
+}
+
 /***********************************
         Password Generator 
 ************************************/
-class {
-    constructor(generatedPassword) {
-        this.generatedPassword = generatedPassword;
+class Password {
+    constructor() {
+        this.generatedPassword = [];
     }
 
+    createPassword(values) {
+        
+    }
+
+    getStrength(password, strength) {
+
+    }
 
 }
+
+
