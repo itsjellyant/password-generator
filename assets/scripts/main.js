@@ -4,6 +4,7 @@ Table of Contents
         - Regular Expressions - match
         - Password Values - the values that will be in the password
 
+    2. Class
 */
 
 /***********************************
@@ -17,28 +18,54 @@ const passwordRegex = {
 }
 
 const passwordValues = {
-    capitalAlphabets: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-    LowerAlphabets: 'abcdefghijklmnopqrstuvwxyz',
+    alphabets: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
     numbers: '1234567890',
     speical: '[]{}<>()!@#$%^&*-_+=|.,;`~/',
 }
 
 /***********************************
-        Password Generator 
+                Class 
 ************************************/
 class Password {
-    constructor() {
-        this.generatedPassword = [];
+    constructor(generatedPassword, length) {
+        this.generatedPassword = generatedPassword;
+        this.length = length;
     }
 
-    createPassword(values) {
-        
+    createPassword(array) {
+        for (let key of array) {
+            passwordValues[key];
+
+            // passwordValues['alphabets']
+            
+        }
     }
 
-    getStrength(password, strength) {
+    strength(password, strength) {
 
     }
 
 }
 
+/***********************************
+            Functions 
+************************************/
+function selectedInputs(values) {
+    /*
+        When the user selects any of the passwordValues keys then push them into an array
+        default will be lowercase if nothing is picked by the user
+    */
 
+    var selectedValues = [/* 'lowerAlphabets' */];
+
+    for (let i = 0; i < selectedValues.length; i++) {
+        selectedValues.push(values)
+    }
+
+
+    // return an array that has the selected passwordValue keys ['alphabets', 'numbers']
+}
+
+function truncatePassword() {
+
+}
