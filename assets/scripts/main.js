@@ -4,68 +4,88 @@ Table of Contents
         - Regular Expressions - match
         - Password Values - the values that will be in the password
 
-    2. Class
+    2. Classes
 */
+
 
 /***********************************
             Variables
 ************************************/
-const passwordRegex = {
-    bad: /[/d]/,
-    weak: /[\w]/,
-    medium: /^[\w\d]$/,
-    high: /^[]$/,
-}
-
-const passwordValues = {
-    alphabets: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
-    numbers: '1234567890',
-    speical: '[]{}<>()!@#$%^&*-_+=|.,;`~/',
-}
 
 /***********************************
-                Class 
+                Classes 
 ************************************/
 class Password {
-    constructor(generatedPassword, length) {
-        this.generatedPassword = generatedPassword;
-        this.length = length;
+    constructor() {
+        this.generatedPassword = null;
     }
 
     createPassword(array) {
+        const passwordValues = {
+                letters: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
+                numbers: '1234567890',
+                symbols: '[]{}<>()!@#$%^&*-_+=|.,;`~/',
+            } 
+        let hash = '';
+        let charCombine = '';
+
         for (let key of array) {
-            passwordValues[key];
-
-            // passwordValues['alphabets']
-            
+            charCombine += passwordValues[key];    
         }
+
+        for (let i = 0; i < this.length(); i++) {
+            hash += charCombine[Math.floor(Math.random() * charCombine.length)];
+        }
+    
+        return this.generatedPassword = hash;
     }
 
-    strength(password, strength) {
-
+    strength() {
+        const passwordRegex = {
+                bad: /[/d]/,
+                weak: /[\w]/,
+                medium: /^[\w\d]$/,
+                high: /^[]$/,
+            }
+        
     }
 
+    length() {
+        const max = document.querySelector('input[type="range"]').value 
+        const length = document.querySelector('.passwordLength').textContent = max
+        return max;
+    }
 }
+
+var password = new Password();
 
 /***********************************
             Functions 
 ************************************/
-function selectedInputs(values) {
+function selectedInputs() {
     /*
-        When the user selects any of the passwordValues keys then push them into an array
-        default will be lowercase if nothing is picked by the user
+        if user checks numbers then
+        push into an empty arr
+
+        if user clicks on numbers again
+        filter element from arr
+        
+    
+    
     */
 
-    var selectedValues = [/* 'lowerAlphabets' */];
-
-    for (let i = 0; i < selectedValues.length; i++) {
-        selectedValues.push(values)
-    }
-
-
+    
     // return an array that has the selected passwordValue keys ['alphabets', 'numbers']
 }
 
-function truncatePassword() {
 
-}
+/***********************************
+            Event Listeners 
+************************************/
+document.querySelector('input[type="range"]').addEventListener('click', function displayValue() {
+    password.length();
+});
+
+document.querySelector('.password-btn').addEventListener('click', function displayPassword() {
+    document.querySelector('.generated-password').textContent = password.createPassword(['numbers', 'letters', 'symbols']);
+});

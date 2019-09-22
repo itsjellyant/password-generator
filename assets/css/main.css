@@ -9,15 +9,21 @@ Table of Contents
 ************************************/
 
 body,html {
-    
+    background-color: var(--background);
+    box-sizing: border-box;
 }
 
-body {
-    
+body  {
+    color: white;
+    padding: 4%;
 }
 
 :root {
-    
+    /* Colors */
+    --background: #1b1c2e;
+    --white: #fff;
 }
 
-
+.generated-password {
+    color: red;
+}
