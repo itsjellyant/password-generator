@@ -1,16 +1,23 @@
 /*
 Table of Contents
     1. Variables
-        - Regular Expressions - match
-        - Password Values - the values that will be in the password
+        - Toggles
+
 
     2. Classes
+        - Password
+
+    3. Event Listeners
+        - Range Input
+        - Generate Password Button
 */
 
 
 /***********************************
             Variables
 ************************************/
+var toggle = document.querySelectorAll('input[type="checkbox"]');
+
 
 /***********************************
                 Classes 
@@ -37,10 +44,19 @@ class Password {
             hash += charCombine[Math.floor(Math.random() * charCombine.length)];
         }
     
-        return this.generatedPassword = hash;
+        return hash;
     }
 
-    strength() {
+    get hash() {
+        return this.createPassword(['numbers', 'letters', 'symbols']);
+    }
+
+    set hash(hash) {
+        this.generatedPassword = hash;
+        return hash;
+    }
+
+    static strength() {
         const passwordRegex = {
                 bad: /[/d]/,
                 weak: /[\w]/,
@@ -51,33 +67,42 @@ class Password {
     }
 
     length() {
-        const max = document.querySelector('input[type="range"]').value 
-        const length = document.querySelector('.passwordLength').textContent = max
+        const max = document.querySelector('input[type="range"]').value;
+        const length = document.querySelector('.passwordLength').textContent = max;
+
         return max;
     }
 }
 
-var password = new Password();
+class Setting extends Password {
+    constructor() {
+        this.activeToggle = [
+            /*numbers */
+            /*symbols */
+            /*...*/
+        ];
+    }
 
-/***********************************
-            Functions 
-************************************/
-function selectedInputs() {
-    /*
+    get toggle() {
+        /*
         if user checks numbers then
         push into an empty arr
 
         if user clicks on numbers again
-        filter element from arr
-        
-    
-    
+        filter element from arr    
     */
 
     
-    // return an array that has the selected passwordValue keys ['alphabets', 'numbers']
+    }
+
+    set toggle() {
+
+    }
 }
 
+var password = new Password();
+var setting = new Setting();
+var setToggle = setting.toggle();
 
 /***********************************
             Event Listeners 
@@ -87,5 +112,6 @@ document.querySelector('input[type="range"]').addEventListener('click', function
 });
 
 document.querySelector('.password-btn').addEventListener('click', function displayPassword() {
-    document.querySelector('.generated-password').textContent = password.createPassword(['numbers', 'letters', 'symbols']);
+    password.createPassword(['numbers', 'letters', 'symbols'] /*setToggle */);
+    document.querySelector('.generated-password').textContent = password.hash
 });
