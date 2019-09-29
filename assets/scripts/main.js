@@ -1,21 +1,14 @@
 /*
 Table of Contents
-1. Variables
-- Toggles
+    1. Classes
+        - Password
+        - Setting
 
-
-2. Classes
-- Password
-
-3. Event Listeners
-- Range Input
-- Generate Password Button
+    2. Event Listeners
+        - Range Input
+        - Generate Password Button
+        - toggles
 */
-
-
-/***********************************
-            Variables
-************************************/
 
 /***********************************
                 Classes 
@@ -26,6 +19,7 @@ class Password {
     }
 
     createPassword(array) {
+
         const passwordValues = {
             letters: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
             numbers: '1234567890',
@@ -43,28 +37,12 @@ class Password {
             hash += charCombine[Math.floor(Math.random() * charCombine.length)];
         }
 
-        return hash;
-    }
-
-    get hash() {
-        return this.createPassword(setting.getToggles());
-    }
-
-    set hash(hash) {
         this.generatedPassword = hash;
+
         return hash;
     }
 
-    static strength() {
-        const passwordRegex = {
-            bad: /[/d]/,
-            weak: /[\w]/,
-            medium: /^[\w\d]$/,
-            high: /^[]$/,
-        }
-
-    }
-
+    /*The length shortens the password if the user wants to by using the range input */
     length() {
         const max = document.querySelector('input[type="range"]').value;
         const length = document.querySelector('.passwordLength').textContent = max;
@@ -74,16 +52,13 @@ class Password {
 }
 
 class Setting extends Password {
-    constructor() {
-        super();
-    }
-
+    /* Returns an array that can be passed into the createPassword method and those will be the password values*/ 
     getToggles() {
         var enables = [];
         event.target.toggleAttribute('enabled');
         event.target.classList.toggle('enabled');
         event.target.parentNode.classList.toggle('container__enabled');
-    
+
         // get all enables
         var attrs = document.querySelectorAll('.toggle__circle');
 
@@ -105,13 +80,13 @@ var setting = new Setting();
 /***********************************
             Event Listeners 
 ************************************/
-document.querySelector('input[type="range"]').addEventListener('click', function displayValue() {
+document.querySelector('input[type="range"]').addEventListener('mousemove', function displayValue() {
     password.length();
 });
 
 document.querySelector('.password-btn').addEventListener('click', function displayPassword() {
     password.createPassword(setting.getToggles());
-    document.querySelector('.generated-password').textContent = password.hash;
+    document.querySelector('.generated-password').textContent = password.createPassword(setting.getToggles());
 });
 
-document.querySelectorAll('.toggle__circle').forEach(circle => circle.addEventListener('click', setting.getToggles))
+document.querySelectorAll('.toggle__circle').forEach(circle => circle.addEventListener('click', setting.getToggles));
