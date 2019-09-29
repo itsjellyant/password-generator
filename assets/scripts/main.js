@@ -16,9 +16,6 @@ Table of Contents
 /***********************************
             Variables
 ************************************/
-var toggle = document.querySelectorAll('input[type="checkbox"]');
-var circles = document.querySelectorAll('.toggle__circle');
-
 
 /***********************************
                 Classes 
@@ -34,6 +31,7 @@ class Password {
             numbers: '1234567890',
             symbols: '[]{}<>()!@#$%^&*-_+=|.,;`~/',
         }
+
         let hash = '';
         let charCombine = '';
 
@@ -49,7 +47,7 @@ class Password {
     }
 
     get hash() {
-        return this.createPassword(['numbers', 'letters', 'symbols']);
+        return this.createPassword(setting.getToggles());
     }
 
     set hash(hash) {
@@ -77,34 +75,29 @@ class Password {
 
 class Setting extends Password {
     constructor() {
-
+        super();
     }
 
     getToggles() {
-        
-    }
-
-}
-
-function toggleCircle() {
-    var enables = [];
-    this.toggleAttribute('enabled');
-    this.classList.toggle('enabled');
-    this.parentNode.classList.toggle('container__enabled');
+        var enables = [];
+        event.target.toggleAttribute('enabled');
+        event.target.classList.toggle('enabled');
+        event.target.parentNode.classList.toggle('container__enabled');
     
-    // get all enables
-    var attrs = document.querySelectorAll('.toggle__circle');
+        // get all enables
+        var attrs = document.querySelectorAll('.toggle__circle');
 
-    for (let i = 0; i < attrs.length; i++) {
-        
-        if (attrs[i].attributes.enabled) {
-            enables.push(attrs[i].dataset.hash);
+        for (let i = 0; i < attrs.length; i++) {
+            
+            if (attrs[i].attributes.enabled) {
+                enables.push(attrs[i].dataset.hash);
+            }
         }
+
+        return enables;
     }
 
-    return console.log(enables);
 }
-
 
 var password = new Password();
 var setting = new Setting();
@@ -117,8 +110,8 @@ document.querySelector('input[type="range"]').addEventListener('click', function
 });
 
 document.querySelector('.password-btn').addEventListener('click', function displayPassword() {
-    password.createPassword();
+    password.createPassword(setting.getToggles());
     document.querySelector('.generated-password').textContent = password.hash;
 });
 
-circles.forEach(circles => circles.addEventListener('click', toggleCircle))
+document.querySelectorAll('.toggle__circle').forEach(circle => circle.addEventListener('click', setting.getToggles))
