@@ -1,15 +1,15 @@
 /*
 Table of Contents
-    1. Variables
-        - Toggles
+1. Variables
+- Toggles
 
 
-    2. Classes
-        - Password
+2. Classes
+- Password
 
-    3. Event Listeners
-        - Range Input
-        - Generate Password Button
+3. Event Listeners
+- Range Input
+- Generate Password Button
 */
 
 
@@ -17,6 +17,7 @@ Table of Contents
             Variables
 ************************************/
 var toggle = document.querySelectorAll('input[type="checkbox"]');
+var circles = document.querySelectorAll('.toggle__circle');
 
 
 /***********************************
@@ -29,21 +30,21 @@ class Password {
 
     createPassword(array) {
         const passwordValues = {
-                letters: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
-                numbers: '1234567890',
-                symbols: '[]{}<>()!@#$%^&*-_+=|.,;`~/',
-            } 
+            letters: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
+            numbers: '1234567890',
+            symbols: '[]{}<>()!@#$%^&*-_+=|.,;`~/',
+        }
         let hash = '';
         let charCombine = '';
 
         for (let key of array) {
-            charCombine += passwordValues[key];    
+            charCombine += passwordValues[key];
         }
 
         for (let i = 0; i < this.length(); i++) {
             hash += charCombine[Math.floor(Math.random() * charCombine.length)];
         }
-    
+
         return hash;
     }
 
@@ -58,12 +59,12 @@ class Password {
 
     static strength() {
         const passwordRegex = {
-                bad: /[/d]/,
-                weak: /[\w]/,
-                medium: /^[\w\d]$/,
-                high: /^[]$/,
-            }
-        
+            bad: /[/d]/,
+            weak: /[\w]/,
+            medium: /^[\w\d]$/,
+            high: /^[]$/,
+        }
+
     }
 
     length() {
@@ -76,33 +77,37 @@ class Password {
 
 class Setting extends Password {
     constructor() {
-        this.activeToggle = [
-            /*numbers */
-            /*symbols */
-            /*...*/
-        ];
-    }
-
-    get toggle() {
-        /*
-        if user checks numbers then
-        push into an empty arr
-
-        if user clicks on numbers again
-        filter element from arr    
-    */
-
-    
-    }
-
-    set toggle() {
 
     }
+
+    getToggles() {
+        
+    }
+
 }
+
+function toggleCircle() {
+    var enables = [];
+    this.toggleAttribute('enabled');
+    this.classList.toggle('enabled');
+    this.parentNode.classList.toggle('container__enabled');
+    
+    // get all enables
+    var attrs = document.querySelectorAll('.toggle__circle');
+
+    for (let i = 0; i < attrs.length; i++) {
+        
+        if (attrs[i].attributes.enabled) {
+            enables.push(attrs[i].dataset.hash);
+        }
+    }
+
+    return console.log(enables);
+}
+
 
 var password = new Password();
 var setting = new Setting();
-var setToggle = setting.toggle();
 
 /***********************************
             Event Listeners 
@@ -112,6 +117,8 @@ document.querySelector('input[type="range"]').addEventListener('click', function
 });
 
 document.querySelector('.password-btn').addEventListener('click', function displayPassword() {
-    password.createPassword(['numbers', 'letters', 'symbols'] /*setToggle */);
-    document.querySelector('.generated-password').textContent = password.hash
+    password.createPassword();
+    document.querySelector('.generated-password').textContent = password.hash;
 });
+
+circles.forEach(circles => circles.addEventListener('click', toggleCircle))

@@ -1,0 +1,29 @@
+.toggle {
+    width: 37px;
+    height: 20px;
+    background-color: #455A64;
+    border-radius: 30px;
+    margin-bottom: 25px;
+    position: relative;
+    transition: all 1s ease;
+}
+
+.toggle__circle {
+    width: 13px;
+    height: 13px;
+    background-color: #B0BEC5;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    border-radius: 50%;
+    transition: all 500ms ease;
+}
+
+.enabled {
+    background-color: #fff;
+    left: 20px;
+}
+
+.container__enabled {
+    background-color: #03A9F4;
+}

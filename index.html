@@ -1,95 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Password Online</title>
 
-        <!-- Links -->
-        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="./assets/css/normalize.css">
-        <link rel="stylsheet" href="./sass/index.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Password Online</title>
 
-    <body>
-        <div class="grid">
+    <!-- Links -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/normalize.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
 
-            <div class="col-1">
-                <div class="module">
-                    <section class="go-back">
-                        <svg class="chevron-left" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                        <p class="text">back</p>
-                    </section>
+</head>
+
+<body>
+    <div class="grid">
+
+        <div class="col-1">
+            <div class="module">
+                <section class="go-back">
+                    <svg class="chevron-left" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="feather feather-chevron-left">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                    <p class="text">back</p>
+                </section>
+            </div>
+        </div>
+
+        <div class="col-1">
+            <div class="module">
+                <!--header  -->
+                <header class="profile">
+                    <h1 class="profile__header headings">Generate password</h1>
+                    <div class="profile__wrapper">
+                        <img src="./assets/images/tech-lead.jpg" alt="The tech lead posing.">
+                    </div>
+                </header>
+            </div> <!-- Module -->
+        </div> <!-- Col-1 -->
+
+        <div class="col-1">
+            <div class="module">
+                <!--Genereated Password  -->
+                <label for="password" class="text">Generated Password</label>
+                <div class="generated-password">Password</div>
+            </div> <!-- First Module -->
+        </div> <!-- Col-1 -->
+
+        <div class="col-1">
+            <div class="module">
+                <!-- Length -->
+                <label for="length" class="text">Length: <span class="passwordLength">4</span></label>
+                <div class="length-container box">
+                    <div class="min">4</div>
+                    <input type="range" id="length" value="4" step="1" min="4" max="32">
+                    <div class="max">32</div>
                 </div>
-            </div>
+            </div> <!-- Second Module -->
+        </div> <!-- Col-1 -->
 
-            <div class="col-1">
-                <div class="module">
-                    <!--header  -->
-                    <header class="profile">
-                        <h1 class="profile__header headings">Generate password</h1>
-                        <div class="profile__wrapper">
-                            <img src="./assets/images/tech-lead.jpg" alt="The tech lead posing.">
-                        </div>
-                    </header>
-                </div> <!-- Module -->
-            </div> <!-- Col-1 -->
-
-            <div class="col-1">
-                <div class="module">
-                    <!--Genereated Password  -->
-                    <label for="password" class="text">Generated Password</label>
-                    <div class="generated-password">Password</div>
-                </div> <!-- First Module -->
-            </div> <!-- Col-1 -->
-
-            <div class="col-1">
-                <div class="module">
-                    <!-- Length -->
-                    <label for="length" class="text">Length: <span class="passwordLength">4</span></label>
-                    <div class="length-container box">
-                        <div class="min">4</div>
-                        <input type="range" id="length" value="4" step="1" min="4" max="32">
-                        <div class="max">32</div>
+        <div class="col-1">
+            <!-- Col-1 -->
+            <div class="module">
+                <!-- Settings -->
+                <h2 for="settings" class="text">Settings</h2>
+                <div class="box">
+                    <h3 class="headings">Include numbers</h3>
+                    <div class="toggle" >
+                        <div class="toggle__circle" data-hash="numbers"></div>
                     </div>
-                </div> <!-- Second Module -->
-            </div> <!-- Col-1 -->
-
-            <div class="col-1"> <!-- Col-1 -->
-                <div class="module">
-                    <!-- Settings -->
-                    <h2 for="settings" class="text">Settings</h2>
-                    <div class="box">
-                        <h3 class="headings" >Include numbers</h3>
-                        <input type="checkbox" data-value="numbers" enanbled>
-                        <div class="toggle-container">
-                            <div class="toggle-container__circle"></div>
-                        </div>
+                </div>
+                <div class="box">
+                    <h3 class="headings">Include letters</h3>
+                    <div class="toggle" >
+                        <div class="toggle__circle" data-hash="letters"></div>
                     </div>
-                    <div class="box">
-                        <h3 class="headings">Include letters</h3>
-                        <input type="checkbox" data-value="letters">
-                        <div class="toggle-container">
-                            <div class="toggle-container__circle"></divc>
-                        </div>
+                </div>
+                <div class="box">
+                    <h3 class="headings">Include symbols</h3>
+                    <div class="toggle" >
+                        <div class="toggle__circle" data-hash="symbols"></div>
                     </div>
-                    <div class="box">
-                        <h3 class="headings">Include symbols</h3>
-                        <input type="checkbox" data-value="symbols">
-                        <div class="toggle-container">
-                            <div class="toggle-container__circle"></divc>
-                        </div>
-                    </div>  
+                </div>
 
-                    <button class="password-btn headings">Generated Password</button>
+                <button class="password-btn headings">Generated Password</button>
 
-                </div>  <!-- Third Module -->
-            </div>
+            </div> <!-- Third Module -->
+        </div>
+    </div> <!-- Grid -->
 
-        </div> <!-- Grid -->
-        
 
-        <script src="./assets/scripts/main.js"></script>
-    </body>
+
+
+
+    <script src="./assets/scripts/main.js"></script>
+</body>
+
 </html>
