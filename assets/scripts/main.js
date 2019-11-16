@@ -1,15 +1,3 @@
-/*
-Table of Contents
-    1. Classes
-        - Password
-        - Setting
-
-    2. Event Listeners
-        - Range Input
-        - Generate Password Button
-        - toggles
-*/
-
 /***********************************
                 Classes 
 ************************************/
@@ -74,8 +62,8 @@ class Setting extends Password {
 
 }
 
-var password = new Password();
-var setting = new Setting();
+const password = new Password();
+const setting = new Setting();
 
 /***********************************
             Event Listeners 

@@ -44,16 +44,19 @@
 
         <div class="col-1">
             <div class="module">
-                <!--Genereated Password  -->
-                <label for="password" class="text">Generated Password</label>
-                <div class="generated-password">Password</div>
+                <div class="password-container">
+                    <h2 for="settings" class="text">Generated Password</h2>
+                    <div class="generated-password-container">
+                        <p class="generated-password">Password</p>
+                    </div>
+                </div>
             </div> <!-- First Module -->
         </div> <!-- Col-1 -->
 
         <div class="col-1">
             <div class="module">
                 <!-- Length -->
-                <label for="length" class="text">Length: <span class="passwordLength">4</span></label>
+                <label for="length" class="length">Length: <span class="passwordLength">4</span></label>
                 <div class="length-container box">
                     <div class="min">4</div>
                     <input type="range" id="length" value="4" step="1" min="4" max="32">
@@ -93,10 +96,6 @@
         </div> <!-- Col-1 -->
         
     </div> <!-- Grid -->
-
-
-
-
 
     <script src="./assets/scripts/main.js"></script>
 </body>
