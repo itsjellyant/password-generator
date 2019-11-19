@@ -18,18 +18,41 @@ class GeneratedPassword {
     }
 }
 
-password = new GeneratedPassword(
+const password = new GeneratedPassword(
     'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
     '0123456789',
     '"!"#$%&\'()*+,-./:;<=>?@[\]^_`{|}~"',
     12
 )
 
-console.log(password.createPassword())
-
-class Toggles extends GeneratedPassword {
+class Options extends GeneratedPassword {
+    
     constructor() {
         super()
     }
 }
 
+
+class DisplayUi {
+
+    showPassword() {
+
+        generatePasswordBtn = document.querySelector('.password-btn').addEventListener('click', () => {
+            document.querySelector('.generated-password').textContent = password.createPassword()
+        });
+
+    }
+
+    showPasswordLength() {
+
+    }
+
+    animateToggles() {
+        
+    }
+
+}
+
+const display = new DisplayUi()
+
+display.showPassword()
