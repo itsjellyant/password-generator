@@ -1,0 +1,23 @@
+{
+  "name": "password-generator",
+  "version": "0.1.0",
+  "description": "A CLI tool that generates unique passwords",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anthonygedeon/password-generator.git"
+  },
+  "author": "Anthony Gedeon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/anthonygedeon/password-generator/issues"
+  },
+  "homepage": "https://github.com/anthonygedeon/password-generator#readme",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "jest": "^26.0.1"
+  }
+}
